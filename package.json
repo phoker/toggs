@@ -25,9 +25,7 @@
     "test:watch": "react-scripts test --env=jsdom",
     "build": "cross-env NODE_ENV=production rollup -c",
     "start": "cross-env NODE_ENV=development rollup -c -w",
-    "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "prepare": "yarn run build"
   },
   "dependencies": {
     "react-spring": "^8.0.5",
