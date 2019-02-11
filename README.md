@@ -22,7 +22,7 @@ $ yarn add toggs
 ## :fire: USAGE
 
 ```
-import React, { useState } from 'toggs'
+import React, { useState } from 'react'
 import Toggs from 'toggs'
 
 const Example = () => {
@@ -35,6 +35,8 @@ const Example = () => {
   )
 }
 ```
+
+[Examples](https://codesandbox.io/s/qvqqz794rq)
 
 ## :pencil2: DEVELOP
 

@@ -1,6 +1,6 @@
 {
   "name": "toggs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "an over-engineered toggle",
   "author": "phoker",
   "license": "MIT",
@@ -21,8 +21,6 @@
   "scripts": {
     "cosmos": "cosmos",
     "cosmos:export": "cosmos-export",
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
     "build": "cross-env NODE_ENV=production rollup -c",
     "start": "cross-env NODE_ENV=development rollup -c -w",
     "prepare": "yarn run build"
@@ -56,7 +54,6 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
-    "gh-pages": "^2.0.1",
     "react": "^16.8.1",
     "react-cosmos": "^4.7.0",
     "react-dom": "^16.8.1",
