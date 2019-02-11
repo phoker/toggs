@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { defaultTrueColor, defaultDuration } from './constants'
+import { defaultDuration } from './constants'
 
 const ToggleContainer = styled.div`
   position: relative;
@@ -9,9 +9,11 @@ const ToggleContainer = styled.div`
   outline: none;
   user-select: none;
   &:before {
-    background-color: ${({ checked }) => checked
-      ? defaultTrueColor
-      : '#000000'};
+    background-color: ${({ checked, trueColor, falseColor }) =>
+      checked
+        ? trueColor
+        : falseColor
+    };
     opacity: .5;
     display: block;
     position: absolute;
@@ -22,9 +24,9 @@ const ToggleContainer = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    border: ${({ checked }) => checked
-      ? `${defaultTrueColor} 1px solid`
-      : '#000000 1px solid'};
+    border: ${({ checked, trueColor, falseColor }) => 
+      `${checked ? trueColor : falseColor} 1px solid`
+    };
     border-radius: ${({ theme: { containerRadius } }) => `${containerRadius}`};
     opacity: .38;
     content: '';
