@@ -4,13 +4,13 @@
 
 Inspired by this [tweet](https://twitter.com/dan_abramov/status/1086704419033497600)
 
- # :exclamation: caution
+# :exclamation: caution
  this was hacked together using an self updated version of create-react-library; this is my first time creating a library :sweat_smile:
   - create-react-library and all deps were updated
   - create-react-app/example folder was removed
   - react-cosmos is used instead for dev/demo purposes
 
- # :sunglasses: install
+# :sunglasses: install
  > run 'yarn add toggs'
 
 # :pencil2: develop
