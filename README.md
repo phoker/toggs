@@ -1,31 +1,12 @@
 # toggs
 
-> an over-engineered toggle
+![material](https://github.com/phoker/toggs/blob/master/assets/material.gif) ![ios](https://github.com/phoker/toggs/blob/master/assets/ios.gif)
 
-[![NPM](https://img.shields.io/npm/v/toggs.svg)](https://www.npmjs.com/package/toggs) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+Inspired by this [tweet](https://twitter.com/dan_abramov/status/1086704419033497600)
 
-## Install
+# :pray: Made with
 
-```bash
-npm install --save toggs
-```
-
-## Usage
-
-```jsx
-import React, { Component } from 'react'
-
-import MyComponent from 'toggs'
-
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
-```
-
-## License
-
-MIT © [phoker](https://github.com/phoker)
+ - [react (with them hooks!)](https://reactjs.org/)
+ - [styled-components](https://www.styled-components.com/)
+ - [react-spring](https://react-spring.surge.sh/#/)
+ - [react-with-gesture](https://github.com/react-spring/react-with-gesture)

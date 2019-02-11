@@ -22,6 +22,7 @@ export default {
       sourcemap: true
     }
   ],
+  external: [ 'styled-components' ],
   plugins: [
     external(),
     postcss({
@@ -30,10 +31,18 @@ export default {
     url(),
     svgr(),
     babel({
+      runtimeHelpers: true,
       exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
+      plugins: [ '@babel/plugin-external-helpers' ]
     }),
     resolve(),
-    commonjs()
+    commonjs({
+      namedExports: {
+        // left-hand side can be an absolute path, a path
+        // relative to the current directory, or the name
+        // of a module in node_modules
+        'node_modules/react-is/index.js': [ 'isElement', 'isValidElementType', 'ForwardRef' ]
+      }
+    })
   ]
 }
