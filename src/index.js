@@ -13,8 +13,33 @@ import {
   usePrevious
 } from './components/constants'
 
-const getCurrentTheme = theme => themes[theme]
 const noOp = () => {}
+
+const getCurrentTheme = theme => themes[theme]
+
+const onClick = (onChange, checked) => e => {
+  e.preventDefault()
+  onChange(!checked)
+}
+
+const getTransformStyle = (checked, down, prevDown, onChange, mid, end) => x => {
+  if (x && !down && (down !== prevDown)) {
+    x >= mid
+      ? onChange(true)
+      : onChange(false)
+  }
+  if (x && down) return `translate3d(${x >= mid ? end : 0}px, 0, 0)`
+  return checked 
+  ? `translate3d(${end}px, 0, 0)`
+  : 'translate3d(0, 0, 0)'
+}
+
+const calcThresholds = (width, currentTheme) => {
+  const { midpoint, endpoint } = currentTheme
+  const mid = (width * midpoint)
+  const end = (width * endpoint)
+  return [ mid, end ]
+}
 
 const Toggs = ({
   className,
@@ -34,25 +59,8 @@ const Toggs = ({
       x: gestureDown ? deltaX : 0
     })
   })
-  const onClick = e => {
-    e.preventDefault()
-    onChange(!checkedProp)
-  }
   const currentTheme = getCurrentTheme(theme)
-  const { midpoint, endpoint } = currentTheme
-  const mid = (width * midpoint)
-  const end = (width * endpoint)
-  const getTransformStyle = x => {
-    if (x && !down && (down !== prevDown)) {
-      x >= mid
-        ? onChange(true)
-        : onChange(false)
-    }
-    if (x && down) return `translate3d(${x >= mid ? end : 0}px, 0, 0)`
-    return checkedProp 
-    ? `translate3d(${end}px, 0, 0)`
-    : 'translate3d(0, 0, 0)'
-  }
+  const [ mid, end ] = calcThresholds(width, currentTheme)
   return (
     <>
       <ToggleContainer
@@ -62,7 +70,7 @@ const Toggs = ({
         trueColor={trueColor}
         falseColor={falseColor}
         width={width}
-        onClick={onClick}
+        onClick={onClick(onChange, checkedProp)}
       >
         <Knob
           {...bind()}
@@ -70,7 +78,7 @@ const Toggs = ({
           checked={checkedProp}
           width={width}
           style={{
-            transform: x.interpolate(getTransformStyle)
+            transform: x.interpolate(getTransformStyle(checkedProp, down, prevDown, onChange, mid, end))
           }}
         />
       </ToggleContainer>
