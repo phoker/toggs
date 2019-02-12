@@ -9,6 +9,7 @@ import themes from './themes'
 import {
   defaultTrueColor,
   defaultFalseColor,
+  defaultWidth,
   usePrevious
 } from './components/constants'
 
@@ -16,11 +17,13 @@ const getCurrentTheme = theme => themes[theme]
 const noOp = () => {}
 
 const Toggs = ({
+  className,
   checked: checkedProp,
   onChange,
   theme,
   trueColor,
-  falseColor
+  falseColor,
+  width = defaultWidth[theme]
 }) => {
   const [ down, setDown ] = useState(false)
   const [ { x }, set ] = useSpring(() => ({ x: 0, delay: 0 }))
@@ -35,31 +38,37 @@ const Toggs = ({
     e.preventDefault()
     onChange(!checkedProp)
   }
+  const currentTheme = getCurrentTheme(theme)
+  const { midpoint, endpoint } = currentTheme
+  const mid = (width * midpoint)
+  const end = (width * endpoint)
   const getTransformStyle = x => {
     if (x && !down && (down !== prevDown)) {
-      x >= 7
+      x >= mid
         ? onChange(true)
         : onChange(false)
     }
-    if (x && down) return `translate3d(${x >= 7 ? 14 : 0}px, 0, 0)`
+    if (x && down) return `translate3d(${x >= mid ? end : 0}px, 0, 0)`
     return checkedProp 
-    ? 'translate3d(14px, 0, 0)'
+    ? `translate3d(${end}px, 0, 0)`
     : 'translate3d(0, 0, 0)'
   }
-  const currentTheme = getCurrentTheme(theme)
   return (
     <>
       <ToggleContainer
+        className={className}
         theme={currentTheme}
         checked={checkedProp}
         trueColor={trueColor}
         falseColor={falseColor}
+        width={width}
         onClick={onClick}
       >
         <Knob
           {...bind()}
           theme={currentTheme}
           checked={checkedProp}
+          width={width}
           style={{
             transform: x.interpolate(getTransformStyle)
           }}
@@ -74,7 +83,8 @@ Toggs.propTypes = {
   onChange: PropTypes.func,
   theme: PropTypes.oneOf(['material', 'ios']),
   trueColor: PropTypes.string,
-  falseColor: PropTypes.string
+  falseColor: PropTypes.string,
+  width: PropTypes.number
 }
 
 Toggs.defaultProps = {
