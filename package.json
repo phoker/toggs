@@ -1,6 +1,6 @@
 {
   "name": "toggs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "an over-engineered toggle",
   "author": "phoker",
   "license": "MIT",
@@ -57,7 +57,7 @@
     "react": "^16.8.1",
     "react-cosmos": "^4.7.0",
     "react-dom": "^16.8.1",
-    "react-scripts": "^2.1.4",
+    "react-scripts": "2.1.5",
     "rollup": "^1.1.2",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.0",

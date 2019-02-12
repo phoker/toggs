@@ -1,4 +1,5 @@
-# toggs
+# toggs [![npm version](https://badge.fury.io/js/toggs.svg)](https://badge.fury.io/js/toggs)
+> a React toggle that doesnt suck
 
 ![material](https://github.com/phoker/toggs/blob/master/assets/material.gif?raw=true) ![ios](https://github.com/phoker/toggs/blob/master/assets/ios.gif?raw=true)
 
@@ -10,8 +11,6 @@ Inspired by this [tweet](https://twitter.com/dan_abramov/status/1086704419033497
   - create-react-library and all deps were updated
   - create-react-app/example folder was removed
   - react-cosmos is used instead for dev/demo purposes
-
-tl;dr, this component might be a bit buggy lol
 
 ## :sunglasses: INSTALL
 
@@ -37,6 +36,17 @@ const Example = () => {
 ```
 
 [Examples](https://codesandbox.io/s/qvqqz794rq)
+
+## :eyes: PROPS
+
+| Prop              | Type       | Default    | Description |
+|-------------------|------------|------------|-------------|
+| `checked`         | _bool_     | false      | Self-explanatory |
+| `onChange`        | _func_     | noOp       | Function to invoke when User clicks on component. Inverted checked value will be passed as arg to the function. |
+| `theme`           | _string_   | `material` | Choose between `material` or `ios`  |
+| `trueColor`       | _string_   | `#14D790`  | Hex or rgb(a) value for when toggle is true. |
+| `falseColor`      | _string_   | `#000000`  | Hex or rgb(a) value for when toggle is false. |
+| `width`           | _number_   | 34         | Width in `px`. Will automatically scale. |
 
 ## :pencil2: DEVELOP
 

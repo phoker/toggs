@@ -4,10 +4,12 @@ import Toggs from './../index';
 const Example = () => {
   const [ checked, setChecked ] = useState(false)
   return (
-    <Toggs
-      checked={checked}
-      onChange={() => { setChecked(!checked) }}
-    />
+    <>
+      <Toggs
+        checked={checked}
+        onChange={() => { setChecked(!checked) }}
+      />
+    </>
   )
 }
 
