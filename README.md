@@ -1,4 +1,4 @@
-# toggs
+# toggs [![npm version](https://badge.fury.io/js/toggs.svg)](https://badge.fury.io/js/toggs)
 > a React toggle that doesnt suck
 
 ![material](https://github.com/phoker/toggs/blob/master/assets/material.gif?raw=true) ![ios](https://github.com/phoker/toggs/blob/master/assets/ios.gif?raw=true)
