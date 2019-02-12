@@ -13,7 +13,7 @@ const material = {
   knobHeight: 0.58823529411,
   knobShadowPosition: {
     top: -0.70588235294,
-    bottom: -0.70588235294
+    left: -0.70588235294
   },
   knobShadowWidth: 1.41176470588,
   knobShadowHeight: 1.41176470588,
@@ -35,7 +35,7 @@ const ios = {
   knobHeight: 0.55555555555,
   knobShadowPosition: {
     top: -0.66666666666,
-    bottom: -0.66666666666
+    left: -0.66666666666
   },
   knobShadowWidth: 1.33333333333,
   knobShadowHeight: 1.33333333333,
