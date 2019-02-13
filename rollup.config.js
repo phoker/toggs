@@ -5,6 +5,8 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
+import linaria from 'linaria/rollup'
+import css from 'rollup-plugin-css-only'
 
 import pkg from './package.json'
 
@@ -22,7 +24,6 @@ export default {
       sourcemap: true
     }
   ],
-  external: [ 'styled-components' ],
   plugins: [
     external(),
     postcss({
@@ -41,8 +42,14 @@ export default {
         // left-hand side can be an absolute path, a path
         // relative to the current directory, or the name
         // of a module in node_modules
-        'node_modules/react-is/index.js': [ 'isElement', 'isValidElementType', 'ForwardRef' ]
+        'node_modules/react-is/index.js': [ 'isElement', 'isValidElementType', 'ForwardRef' ],
+        'node_modules/linaria/react.js': [ 'styled' ]
       }
-    })
+    }),
+    /* rest of your plugins */
+    linaria({
+      sourceMap: process.env.NODE_ENV !== 'production',
+    }),
+    css(),
   ]
 }
