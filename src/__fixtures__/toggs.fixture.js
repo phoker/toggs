@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Toggs from './../index';
+import Toggs from './../index'
 
 const Example = () => {
   const [ checked, setChecked ] = useState(false)
