@@ -29,9 +29,9 @@ const getTransformStyle = (checked, down, prevDown, onChange, mid, end) => x => 
       : onChange(false)
   }
   if (x && down) return `translate3d(${x >= mid ? end : 0}px, 0, 0)`
-  return checked 
-  ? `translate3d(${end}px, 0, 0)`
-  : 'translate3d(0, 0, 0)'
+  return checked
+    ? `translate3d(${end}px, 0, 0)`
+    : 'translate3d(0, 0, 0)'
 }
 
 const calcThresholds = (width, currentTheme) => {
@@ -87,6 +87,7 @@ const Toggs = ({
 }
 
 Toggs.propTypes = {
+  className: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
   theme: PropTypes.oneOf(['material', 'ios']),

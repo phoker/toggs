@@ -3,7 +3,6 @@ import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
-import url from 'rollup-plugin-url'
 
 import pkg from './package.json'
 
@@ -27,7 +26,6 @@ export default {
     postcss({
       modules: true
     }),
-    url(),
     babel({
       runtimeHelpers: true,
       exclude: 'node_modules/**',
