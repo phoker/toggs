@@ -12,7 +12,7 @@ const Knob = styled(animated.div)`
   position: absolute;
   box-sizing: border-box;
   width: ${({ theme: { knobWidth }, width }) => `${knobWidth * width}px`};
-  height: ${({ theme: { knobHeight }, width  }) => `${knobHeight * width}px`};
+  height: ${({ theme: { knobHeight }, width }) => `${knobHeight * width}px`};
   transition: transform ${defaultDuration}s cubic-bezier(.4,0,.2,1),
   background-color ${defaultDuration}s cubic-bezier(.4,0,.2,1),
   border-color ${defaultDuration}s cubic-bezier(.4,0,.2,1);
@@ -41,8 +41,8 @@ const Knob = styled(animated.div)`
     background-color ${defaultDuration}s cubic-bezier(.4,0,.2,1);
     border-radius: 50%;
     opacity: ${({ checked }) => checked
-      ? '.2'
-      : '.15'};
+    ? '.2'
+    : '.15'};
     content: "";
   }
 `

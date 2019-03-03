@@ -8,7 +8,7 @@ export const defaultFalseColor = '#000000'
 
 export const defaultWidth = {
   material: 34,
-  ios: 36,
+  ios: 36
 }
 
 export const usePrevious = value => {
