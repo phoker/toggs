@@ -13,24 +13,33 @@ const Container = styled.div`
   justify-content: center;
 `
 
-const Example = () => {
+const Example = props => {
   const [ checked, setChecked ] = useState(false)
   return (
-    <>
-      <Container>
-        <Toggs
-          width={100}
-          checked={checked}
-          onChange={() => { setChecked(!checked) }}
-        />
-      </Container>
-    </>
+    <Container>
+      <Toggs
+        {...props}
+        width={100}
+        checked={checked}
+        onChange={() => { setChecked(!checked) }}
+      />
+    </Container>
   )
 }
 
-export default {
-  component: Example,
-  props: {
-    theme: 'ios'
+export default [
+  {
+    component: Example,
+    name: 'iOS',
+    props: {
+      theme: 'ios'
+    }
+  },
+  {
+    component: Example,
+    name: 'Material',
+    props: {
+      theme: 'material'
+    }
   }
-}
+]

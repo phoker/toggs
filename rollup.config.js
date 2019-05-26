@@ -23,9 +23,7 @@ export default {
   external: [ 'styled-components' ],
   plugins: [
     external(),
-    postcss({
-      modules: true
-    }),
+    postcss(),
     babel({
       runtimeHelpers: true,
       exclude: 'node_modules/**',

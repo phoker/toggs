@@ -4,16 +4,15 @@ import { defaultDuration } from './constants'
 const ToggleContainer = styled.div`
   position: relative;
   width: ${({ width }) => `${width}px`};
-  height: ${({ theme: { height }, width  }) => `${width * height}px`};
+  height: ${({ theme: { height }, width }) => `${width * height}px`};
   border-radius: 50%;
   outline: none;
   user-select: none;
   &:before {
     background-color: ${({ checked, trueColor, falseColor }) =>
-      checked
-        ? trueColor
-        : falseColor
-    };
+    checked
+      ? trueColor
+      : falseColor};
     opacity: .5;
     display: block;
     position: absolute;
@@ -24,10 +23,9 @@ const ToggleContainer = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    border: ${({ checked, trueColor, falseColor, width }) => 
-      `${checked ? trueColor : falseColor} ${1 / width}px solid`
-    };
-    border-radius: ${({ theme: { containerRadius },  width }) => `${ width * containerRadius}px`};
+    border: ${({ checked, trueColor, falseColor, width }) => `
+    ${checked ? trueColor : falseColor} ${1 / width}px solid`};
+    border-radius: ${({ theme: { containerRadius }, width }) => `${width * containerRadius}px`};
     opacity: .38;
     content: '';
   }

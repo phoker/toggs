@@ -62,27 +62,25 @@ const Toggs = ({
   const currentTheme = getCurrentTheme(theme)
   const [ mid, end ] = calcThresholds(width, currentTheme)
   return (
-    <>
-      <ToggleContainer
-        className={className}
+    <ToggleContainer
+      className={className}
+      theme={currentTheme}
+      checked={checkedProp}
+      trueColor={trueColor}
+      falseColor={falseColor}
+      width={width}
+      onClick={onClick(onChange, checkedProp)}
+    >
+      <Knob
+        {...bind()}
         theme={currentTheme}
         checked={checkedProp}
-        trueColor={trueColor}
-        falseColor={falseColor}
         width={width}
-        onClick={onClick(onChange, checkedProp)}
-      >
-        <Knob
-          {...bind()}
-          theme={currentTheme}
-          checked={checkedProp}
-          width={width}
-          style={{
-            transform: x.interpolate(getTransformStyle(checkedProp, down, prevDown, onChange, mid, end))
-          }}
-        />
-      </ToggleContainer>
-    </>
+        style={{
+          transform: x.interpolate(getTransformStyle(checkedProp, down, prevDown, onChange, mid, end))
+        }}
+      />
+    </ToggleContainer>
   )
 }
 
