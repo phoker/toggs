@@ -5,12 +5,51 @@
   "author": "phoker",
   "license": "MIT",
   "repository": "phoker/toggs",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "pika-plugin-minify",
+        {
+          "minifyOptions": {
+            "parse": {
+              "ecma": 8
+            },
+            "compress": {
+              "ecma": 5,
+              "warnings": false,
+              "comparisons": false,
+              "inline": 2
+            },
+            "mangle": {
+              "safari10": true
+            },
+            "output": {
+              "ecma": 5,
+              "comments": false,
+              "ascii_only": true
+            }
+          }
+        }
+      ]
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -21,9 +60,10 @@
   "scripts": {
     "cosmos": "cosmos",
     "cosmos:export": "cosmos-export",
-    "build": "cross-env NODE_ENV=production rollup -c",
-    "start": "cross-env NODE_ENV=development rollup -c -w",
-    "prepare": "yarn run build"
+    "build": "cross-env NODE_ENV=production npx @pika/pack build",
+    "start": "cross-env NODE_ENV=development yarn run start",
+    "prepare": "yarn run build",
+    "yolo": "cross-env NODE_ENV=production npm login && npx @pika/pack publish"
   },
   "dependencies": {
     "react-spring": "^8.0.20",
@@ -39,6 +79,9 @@
     "@babel/core": "^7.4.5",
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
+    "@pika/plugin-build-node": "^0.4.0",
+    "@pika/plugin-build-web": "^0.4.0",
+    "@pika/plugin-standard-pkg": "^0.4.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "babel-preset-react-app": "^9.0.0",
@@ -52,16 +95,11 @@
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
     "eslint-plugin-standard": "^4.0.0",
+    "pika-plugin-minify": "^0.1.0",
     "react": "^16.8.3",
     "react-cosmos": "^4.8.1",
     "react-dom": "^16.8.3",
     "react-scripts": "3.0.1",
-    "rollup": "^1.12.3",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-postcss": "^2.0.3",
     "styled-components": "^4.2.0"
   },
   "files": [
