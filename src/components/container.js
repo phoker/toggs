@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import { defaultDuration } from './constants'
 
+// FULL CREDIT goes to Material Design for styling
+// https://github.com/material-components/material-components-web/blob/master/packages/mdc-switch/_variables.scss
+
 const ToggleContainer = styled.div`
   position: relative;
   width: ${({ width }) => `${width}px`};

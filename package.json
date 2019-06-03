@@ -63,7 +63,7 @@
     "build": "cross-env NODE_ENV=production npx @pika/pack build",
     "start": "cross-env NODE_ENV=development yarn run start",
     "prepare": "yarn run build",
-    "yolo": "cross-env NODE_ENV=production npm login && npx @pika/pack publish"
+    "yolo": "cross-env NODE_ENV=production npm login && cross-env NODE_ENV=production npx @pika/pack publish"
   },
   "dependencies": {
     "react-spring": "^8.0.20",
