@@ -14,14 +14,16 @@ const Container = styled.div`
 `
 
 const Example = props => {
-  const [ checked, setChecked ] = useState(false)
+  const [checked, setChecked] = useState(false)
   return (
     <Container>
       <Toggs
         {...props}
         width={100}
         checked={checked}
-        onChange={() => { setChecked(!checked) }}
+        onChange={() => {
+          setChecked(!checked)
+        }}
       />
     </Container>
   )

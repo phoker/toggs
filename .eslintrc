@@ -1,20 +1,26 @@
 {
   "parser": "babel-eslint",
   "env": {
-    "es6": true
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
   },
   "plugins": [
     "react",
     "react-hooks"
   ],
   "extends": [
-    "standard",
-    "standard-react"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 2018
   },
   "rules": {
-    "react-hooks/rules-of-hooks": "error"
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

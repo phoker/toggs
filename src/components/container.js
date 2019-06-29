@@ -13,23 +13,22 @@ const ToggleContainer = styled.div`
   user-select: none;
   &:before {
     background-color: ${({ checked, trueColor, falseColor }) =>
-    checked
-      ? trueColor
-      : falseColor};
-    opacity: .5;
+      checked ? trueColor : falseColor};
+    opacity: 0.5;
     display: block;
     position: absolute;
-    transition: opacity ${defaultDuration}s cubic-bezier(.4,0,.2,1),
-    background-color ${defaultDuration}s cubic-bezier(.4,0,.2,1),
-    border-color ${defaultDuration}s cubic-bezier(.4,0,.2,1);
+    transition: opacity ${defaultDuration}s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color ${defaultDuration}s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color ${defaultDuration}s cubic-bezier(0.4, 0, 0.2, 1);
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     border: ${({ checked, trueColor, falseColor, width }) => `
     ${checked ? trueColor : falseColor} ${1 / width}px solid`};
-    border-radius: ${({ theme: { containerRadius }, width }) => `${width * containerRadius}px`};
-    opacity: .38;
+    border-radius: ${({ theme: { containerRadius }, width }) =>
+      `${width * containerRadius}px`};
+    opacity: 0.38;
     content: '';
   }
 `

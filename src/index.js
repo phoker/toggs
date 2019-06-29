@@ -22,23 +22,26 @@ const onClick = (onChange, checked) => e => {
   onChange(!checked)
 }
 
-const getTransformStyle = (checked, down, prevDown, onChange, mid, end) => x => {
-  if (x && !down && (down !== prevDown)) {
-    x >= mid
-      ? onChange(true)
-      : onChange(false)
+const getTransformStyle = (
+  checked,
+  down,
+  prevDown,
+  onChange,
+  mid,
+  end
+) => x => {
+  if (x && !down && down !== prevDown) {
+    x >= mid ? onChange(true) : onChange(false)
   }
   if (x && down) return `translate3d(${x >= mid ? end : 0}px, 0, 0)`
-  return checked
-    ? `translate3d(${end}px, 0, 0)`
-    : 'translate3d(0, 0, 0)'
+  return checked ? `translate3d(${end}px, 0, 0)` : 'translate3d(0, 0, 0)'
 }
 
 const calcThresholds = (width, currentTheme) => {
   const { midpoint, endpoint } = currentTheme
-  const mid = (width * midpoint)
-  const end = (width * endpoint)
-  return [ mid, end ]
+  const mid = width * midpoint
+  const end = width * endpoint
+  return [mid, end]
 }
 
 const Toggs = ({
@@ -50,17 +53,17 @@ const Toggs = ({
   falseColor,
   width = defaultWidth[theme]
 }) => {
-  const [ down, setDown ] = useState(false)
-  const [ { x }, set ] = useSpring(() => ({ x: 0, delay: 0 }))
+  const [down, setDown] = useState(false)
+  const [{ x }, set] = useSpring(() => ({ x: 0, delay: 0 }))
   const prevDown = usePrevious(down)
-  const bind = useGesture(({ down: gestureDown, delta: [ deltaX ] }) => {
+  const bind = useGesture(({ down: gestureDown, delta: [deltaX] }) => {
     if (Math.abs(deltaX) > 1) setDown(gestureDown)
     set({
       x: gestureDown ? deltaX : 0
     })
   })
   const currentTheme = getCurrentTheme(theme)
-  const [ mid, end ] = calcThresholds(width, currentTheme)
+  const [mid, end] = calcThresholds(width, currentTheme)
   return (
     <ToggleContainer
       className={className}
@@ -77,7 +80,9 @@ const Toggs = ({
         checked={checkedProp}
         width={width}
         style={{
-          transform: x.interpolate(getTransformStyle(checkedProp, down, prevDown, onChange, mid, end))
+          transform: x.interpolate(
+            getTransformStyle(checkedProp, down, prevDown, onChange, mid, end)
+          )
         }}
       />
     </ToggleContainer>
