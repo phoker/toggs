@@ -62,7 +62,8 @@
     "cosmos:export": "cosmos-export",
     "build": "cross-env NODE_ENV=production npx @pika/pack build",
     "start": "cross-env NODE_ENV=development yarn run start",
-    "prepare": "yarn run build"
+    "version": "yarn run build",
+    "yolo": "npx @pika/pack publish"
   },
   "dependencies": {
     "react-spring": "^8.0.25",
